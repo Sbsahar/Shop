@@ -5,12 +5,10 @@ import subprocess
 from utils import *
 from main import bot, ADMIN_GROUP_CHAT_ID, PRODUCTS_PER_PAGE, DEVELOPER_ID, user_data, user_ids
 
-# باقي الكود كما هو (بدون تغيير)
-# تأكد من أن جميع الدوال مثل send_welcome, send_help, إلخ، موجودة هنا
-
 # الترحيب
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
+    print(f"تم استلام /start من المستخدم {message.from_user.id}")  # للتأكد من أن الأمر يصل
     user_ids.add(message.from_user.id)
     markup = types.InlineKeyboardMarkup(row_width=2)
     btn_sell = types.InlineKeyboardButton("اعرض منتجك للبيع", callback_data="sell")
@@ -30,6 +28,7 @@ def send_welcome(message):
                  "للبحث عن سلعة، استخدم /search\n"
                  "لمعلومات عن طلب، استخدم /info",
                  parse_mode="Markdown", reply_markup=markup)
+
 
 # الأمر /help
 @bot.message_handler(commands=['help'])
