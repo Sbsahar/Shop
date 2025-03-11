@@ -5,6 +5,9 @@ import subprocess
 from utils import *
 from main import bot, ADMIN_GROUP_CHAT_ID, PRODUCTS_PER_PAGE, DEVELOPER_ID, user_data, user_ids
 
+# باقي الكود كما هو (بدون تغيير)
+# تأكد من أن جميع الدوال مثل send_welcome, send_help, إلخ، موجودة هنا
+
 # الترحيب
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
