@@ -6,6 +6,7 @@ import telebot
 PRODUCTS_FILE = "products.json"
 
 def load_products():
+    print("جاري تحميل المنتجات...")  # للتأكد من أن الدالة تعمل
     if not os.path.exists(PRODUCTS_FILE):
         with open(PRODUCTS_FILE, "w", encoding="utf-8") as f:
             json.dump([], f)
