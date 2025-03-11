@@ -1,5 +1,6 @@
 import telebot
-from handlers import *
+import time
+from handlers import *  # استيراد جميع المعالجات
 
 # إعداد البوت
 bot = telebot.TeleBot("7383597510:AAHsQBH05yVEN96rL783BDkRD1YO1yXY1R4")
@@ -13,4 +14,9 @@ user_ids = set()
 
 if __name__ == "__main__":
     print("البوت يعمل الآن...")
-    bot.polling(none_stop=True)
+    while True:
+        try:
+            bot.polling(none_stop=True)
+        except Exception as e:
+            print(f"حدث خطأ: {e}")
+            time.sleep(5)
